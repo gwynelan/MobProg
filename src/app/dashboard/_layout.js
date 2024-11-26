@@ -17,11 +17,19 @@ export default function DrawerLayout() {
                 }}
             />
             <Drawer.Screen
-                name="settings" // This is the name of the page and must match the url from root
+                name="settings" 
                 options={{
                     drawerLabel: 'Settings',
                     title: 'Settings',
                     drawerIcon: ({ focused }) => <MaterialCommunityIcons name={focused ? 'cog' : 'cog-outline' } size={20} />,
+                }}
+            />
+            <Drawer.Screen
+                name="profile" 
+                options={{
+                    drawerLabel: 'Profile',
+                    title: 'Profile',
+                    drawerIcon: ({ focused }) => <MaterialCommunityIcons name={focused ? 'account' : 'account-outline'} size={20} />,
                 }}
             />
         </Drawer>

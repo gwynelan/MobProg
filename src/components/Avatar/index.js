@@ -1,27 +1,34 @@
-import { Image, View } from 'react-native'
+import { Image, View } from 'react-native';
 
 const Avatar = (props) => {
+  const size = props.toggle ? 250 : 150; // Determine size based on toggle prop
+
   return (
     <View
-        style={{    
-            width: props.toggle ? 250 : 150, 
-            height: props.toggle ? 250 : 150, 
-            boxShadow: '#000',
-            border: '15px solid #000', 
-            padding: 5,
-            borderRadius: 75, 
-        }}
+      style={{
+        width: size,
+        height: size,
+        borderWidth: 5,
+        borderColor: '#000',
+        borderRadius: size / 2, 
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        overflow: 'hidden',
+      }}
     >
-        <Image 
-                source={require('../../assets/logo.png')}
-                style={{ 
-                    width: '100%',
-                    height: '100%',
-                }} 
-        />
+      <Image
+        source={require('../../assets/6.jpg')}
+        style={{
+          width: '100%',
+          height: '100%',
+          borderRadius: size / 2, 
+        }}
+        resizeMode="cover" 
+      />
     </View>
-    
-  )
-}
+  );
+};
 
-export default Avatar
+export default Avatar;

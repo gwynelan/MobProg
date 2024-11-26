@@ -30,7 +30,7 @@ export default function DrawerContent(props) {
                         paddingBottom: 20
                     }}
                 > 
-                    <Image source={require('../../assets/logo.png')} style={{ alignSelf: 'center', height: 150, width: 150 }} /> 
+                    <Image source={require('../../assets/me.jpg')} style={{ alignSelf: 'center', height: 150, width: 150 }} /> 
                 </View>
                 <DrawerItemList {...props} />
                 <DrawerItem

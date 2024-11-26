@@ -13,8 +13,9 @@ const DashboardLayout = () => {
                 fontSize: 12
             },
             tabBarStyle:{
-                margin: 10,
-                borderRadius: 10,
+               
+                borderRadius: 5,
+                position: 'absolute',
             },            
             tabBarShowLabel: true
         }} 
@@ -25,11 +26,18 @@ const DashboardLayout = () => {
                 tabBarIcon: ({ focused }) => <MaterialCommunityIcons name={focused ? 'home': 'home-outline'} size={24} color='black' />
             }}
         />
-        <Tabs.Screen name='profile'
-            options={{
-                title: 'Profile',
-                tabBarIcon: ({focused}) => <MaterialCommunityIcons name={focused ? 'account': 'account-outline'} size={24} color='black' />
-            }}
+        <Tabs.Screen
+        name="profile"
+        options={{
+            title: 'Profile',
+            tabBarIcon: ({ focused }) => (
+            <MaterialCommunityIcons
+                name={focused ? 'account' : 'account-outline'}
+                size={24}
+                color="black"
+            />
+            ),
+        }}
         />
         <Tabs.Screen name='settings'
             options={{

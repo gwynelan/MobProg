@@ -10,7 +10,7 @@ const Avatar = (props) => {
         height: size,
         borderWidth: 5,
         borderColor: '#000',
-        borderRadius: size / 2, 
+        borderRadius: 50, 
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.3,

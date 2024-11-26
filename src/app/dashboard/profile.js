@@ -35,9 +35,6 @@ const Profile = () => {
         <TouchableOpacity style={styles.actionButton}>
           <Text style={styles.actionButtonText}>Edit Profile</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.actionButton, styles.secondaryButton]}>
-          <Text style={[styles.actionButtonText, styles.secondaryButtonText]}>Settings</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );

@@ -1,14 +1,18 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Switch } from 'react-native';
+import { Picker } from '@react-native-picker/picker'; // Updated import
 import { Button } from 'react-native-paper';
 import { useRouter } from 'expo-router';
 
 const Settings = () => {
   const router = useRouter();
+  const [isNotificationsEnabled, setNotificationsEnabled] = useState(true);
+  const [language, setLanguage] = useState('en');
 
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Settings</Text>
+
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Account</Text>
         <TouchableOpacity style={styles.option}>
@@ -18,6 +22,30 @@ const Settings = () => {
           <Text style={styles.optionText}>Change Password</Text>
         </TouchableOpacity>
       </View>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Preferences</Text>
+        <View style={styles.option}>
+          <Text style={styles.optionText}>Enable Notifications</Text>
+          <Switch
+            value={isNotificationsEnabled}
+            onValueChange={(value) => setNotificationsEnabled(value)}
+          />
+        </View>
+        <View style={styles.option}>
+          <Text style={styles.optionText}>Language</Text>
+          <Picker
+            selectedValue={language}
+            style={styles.picker}
+            onValueChange={(itemValue) => setLanguage(itemValue)}
+          >
+            <Picker.Item label="English" value="en" />
+            <Picker.Item label="Spanish" value="es" />
+            <Picker.Item label="French" value="fr" />
+          </Picker>
+        </View>
+      </View>
+
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Support</Text>
         <TouchableOpacity style={styles.option}>
@@ -30,6 +58,7 @@ const Settings = () => {
           <Text style={styles.optionText}>About</Text>
         </TouchableOpacity>
       </View>
+
       <View style={styles.logoutContainer}>
         <Button
           mode="contained"
@@ -78,14 +107,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#4a4a4a',
   },
+  picker: {
+    flex: 1,
+    height: 50,
+    color: '#4a4a4a',
+    marginLeft: 20,
+  },
   logoutContainer: {
     alignItems: 'center',
+    marginBottom: 40,
   },
   logoutButton: {
     backgroundColor: '#1f7a8c',
     borderRadius: 8,
     paddingVertical: 10,
-    width: '100%',
+    width: '50%',
   },
   logoutButtonText: {
     fontSize: 16,
